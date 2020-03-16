@@ -209,7 +209,7 @@ class GroupsioClient(MailingList):
         }
 
         if from_date:
-            payload['start_time'] = datetime_to_utc(from_date).isoformat()
+            payload['start_time'] = datetime_to_utc(from_date).isoformat() + 'Z'
 
         filepath = os.path.join(self.dirpath, MBOX_FILE)
         success = self._download_archive(url, payload, filepath)
